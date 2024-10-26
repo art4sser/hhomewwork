@@ -1,264 +1,233 @@
+import java.sql.SQLOutput;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
-        // 5.13
-        int a = 1;
-        int s = 2;
-        int d = 3;
-        int f = 4;
-        int g = 5;
-        int h = 6;
-        int j = 7;
-        int k = 8;
-        int l = 9;
-
-        int aa = a * 7;
-        int ss = s * 7;
-        int dd = d * 7;
-        int ff = f * 7;
-        int gg = g * 7;
-        int hh = h * 7;
-        int jj = j * 7;
-        int kk = k * 7;
-        int ll = l * 7;
-
-        System.out.println("1 * 7 = " + aa);
-        System.out.println("2 * 7 = " + ss);
-        System.out.println("3 * 7 = " + dd);
-        System.out.println("4 * 7 = " + ff);
-        System.out.println("5 * 7 = " + gg);
-        System.out.println("6 * 7 = " + hh);
-        System.out.println("7 * 7 = " + jj);
-        System.out.println("8 * 7 = " + kk);
-        System.out.println("9 * 7 = " + ll);
-
-        // 5.27
-        // A)
-    int sum = 0;
-
-    for (int i = 100; i <= 500; i++) {
-        sum += i;
+        Random random = new Random();
+        //11.3
+        // а) Вещественные значения от 0 до 1
+        double[] arrayA = new double[15];
+        for (int i = 0; i < arrayA.length; i++) {
+            arrayA[i] = random.nextDouble();
         }
 
-        System.out.println("Сумма всех целых чисел от 100 до 500: " + sum);
-
-    // г)
-
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.print("Введите a: ");
-    int a3 = scanner.nextInt();
-
-    System.out.print("Введите b: ");
-    int b = scanner.nextInt();
-
-    int sum4 = 0;
-
-    for (int i = a; i <= b; i++) {
-        sum4 += i;
-    }
-
-    System.out.println("Сумма всех целых чисел от " + a3 + " до " + b + ": " + sum4);
-
-    // 5.28
-    // a)
-
-    int product = 1;
-
-    for (int i = 8; i <= 15; i++) {
-            product *= i;
-    }
-
-    System.out.println("Произведение всех целых чисел от 8 до 15: " + product);
-
-    // г)
-
-     Scanner scanner1 = new Scanner(System.in);
-
-     System.out.print("Введите a: ");
-     int a5 = scanner.nextInt();
-
-     System.out.print("Введите b: ");
-     int b6 = scanner.nextInt();
-
-     if (b6 <= a5) {
-     System.out.println("Ошибка: b должно быть больше a.");
-     return;
-     }
-
-     long product1 = 1;
-
-     for (int i = a; i <= b; i++) {
-     product1 *= i;
-     }
-
-     System.out.println("Произведение всех целых чисел от " + a5 + " до " + b6 + ": " + product1);
-
-     //5.8
-
-     System.out.printf("%-10s %-10s%n", "Фунты", "Килограммы");
-     System.out.println("------------------------");
-
-     for (int pounds5 = 1; pounds5 <= 10; pounds5++) {
-         double kilograms = pounds5 * 0.453592; // 1 фунт = 0.453592 кг
-         System.out.printf("%-10d %-10.3f%n", pounds5, kilograms);
-     }
-
-        //5.72
-        double initialDistance = 10;
-        double[] distances = new double[10];
-        distances[0] = initialDistance;
-
-        // a)
-        System.out.println("Пробег лыжника за дни:");
-        for (int day = 1; day < 10; day++) {
-            distances[day] = distances[day - 1] * 1.1;
-            System.out.printf("День %d: %.2f км%n", day + 1, distances[day]);
+        // б) Вещественные значения (22 < x < 23)
+        double[] arrayB = new double[15];
+        for (int i = 0; i < arrayB.length; i++) {
+            arrayB[i] = 22 + random.nextDouble();
         }
 
-        // b)
-        double totalDistance = 0;
-        for (int day = 0; day < 7; day++) {
-            totalDistance += distances[day];
+        // в) Вещественные значения (0 < x < 10)
+        double[] arrayC = new double[15];
+        for (int i = 0; i < arrayC.length; i++) {
+            arrayC[i] = random.nextDouble() * 10;
         }
 
-        System.out.printf("Суммарный путь за первые 7 дней: %.2f км%n", totalDistance);
-
-        // 5.1
-        for (int i = 0; i < 10; i++) {
-            System.out.print("20 ");
+        // г) Вещественные значения (–50 < x < 50)
+        double[] arrayD = new double[15];
+        for (int i = 0; i < arrayD.length; i++) {
+            arrayD[i] = -50 + random.nextDouble() * 100;
         }
 
-        // 6.21
-        // a)
-        Scanner scanner2 = new Scanner(System.in);
-        System.out.print("Введите n (n > 1): ");
-        int n = scanner2.nextInt();
-
-        int a34 = 1, b3 = 1;
-        while (b3 <= n) {
-            int temp = b3;
-            b3 = a + b3;
-            a34 = temp;
+        // д) Целые значения от 0 до 10 включительно
+        int[] arrayE = new int[15];
+        for (int i = 0; i < arrayE.length; i++) {
+            arrayE[i] = random.nextInt(11);
         }
-        System.out.println("Первое число Фибоначчи, большее n: " + b3);
 
-        // b)
-
-        int a55 = 1, b65 = 1;
-        int sum65 = 0;
-
-        while (a55 <= 1000) {
-            sum65 += a55;
-            int temp = b65;
-            b65 = a55 + b65;
-            a55 = temp;
+        // Вывод массивов
+        System.out.println("Массив A: ");
+        for (double num : arrayA) {
+            System.out.println(num);
         }
-        System.out.println("Сумма всех чисел Фибоначчи, не превосходящих 1000: " + sum65);
 
-        // 7.1
+        System.out.println("Массив B: ");
+        for (double num : arrayB) {
+            System.out.println(num);
+        }
 
-        for (int i = 100; i <= 200; i++) {
-            if (i % 3 == 0) {
-                System.out.println(i);
+        System.out.println("Массив C: ");
+        for (double num : arrayC) {
+            System.out.println(num);
+        }
+
+        System.out.println("Массив D: ");
+        for (double num : arrayD) {
+            System.out.println(num);
+        }
+
+        System.out.println("Массив E: ");
+        for (int num : arrayE) {
+            System.out.println(num);
+        }
+        //11.18
+        //a)
+        int[] nnn = new int[]{1, 4, 7, 9, 9, 5};
+
+        for (int i = 0; i < nnn.length; i++) {
+            nnn[i] = nnn[i] -= 20;
+        }
+
+        System.out.println("число минус 20: " + Arrays.toString(nnn));
+
+        //b)
+        int lastelem = nnn[nnn.length - 1];
+
+        for (int i = 0; i < nnn.length; i++) {
+            nnn[i] *= lastelem;
+        }
+        System.out.println("число умноженное на последнее: " + Arrays.toString(nnn));
+
+        // в)
+        int b = 23;
+
+        for (int i = 0; i < nnn.length; i++) {
+            nnn[i] = nnn[i] + b;
+            System.out.println("число + B" + Arrays.toString(nnn));
+        }
+
+        // 11.28
+        int[] bbb = new int[]{1, 2, -4, 10, -13};
+        int sum = 0;
+        for (int i = 0; i < bbb.length; i++) {
+            sum += bbb[i];
+        }
+        if (sum >= 0) {
+            System.out.println("неотриц число: " + sum);
+        } else {
+            System.out.println("отриц число: " + sum);
+        }
+
+        // 11.32
+        int[] masses = new int[]{1, 5, 6, 8, 4, 8, 3, 9, 5, 8, 5, 4, 7, 9, 8, 6, 5, 4, 5, 6, 7, 8, 5, 3, 5, 6, 7, 9, 7};
+        int maxmass = 200;
+        int totallmass = 0;
+        for (int mass : masses) {
+            totallmass += mass;
+        }
+        if (totallmass <= maxmass) {
+            System.out.println("не превышает можете ехать : " + totallmass);
+        } else {
+            System.out.println("превышает уберите несколько ящиков: " + totallmass);
+        }
+        // 11.43
+        int[] osad = {0, 4, 5, 0, 0, 6, 2, 0, 0, 0, 0, 6, 0, 7, 0, 0, 0, 4, 5, 6, 0, 1, 2, 0, 0, 0, 0, 0, 6, 3, 1};
+
+        System.out.println("Дни без осадков:");
+
+        for (int days = 0; days < osad.length; days++) {
+            if (osad[days] == 0) {
+                System.out.println("День " + (days + 1));
             }
         }
+        // 11.45
+        int[] array = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+        System.out.println("Элементы на чет мест:");
+        for (int i = 0; i < array.length; i += 2) {
+            System.out.println(array[i] + " ");
+        }
+        System.out.println("Элементы на нечет мест:");
+        for (int i = 1; i < array.length; i += 2) {
+            System.out.println(array[i] + " ");
+        }
+        // 11.46
+        double[] arrays = {-4.0, 9.0, -16.0, 25.0, -1.0, 36.0, 0.0, -49.0};
+        for ( int i = 0; i < arrays.length; i++) {
+            if (arrays[i] < 0) {
+                arrays[i] = Math.abs(arrays[i]);
+            }
+            if (i % 2 != 0) {
+                arrays[i] = Math.sqrt(arrays[i]);
+            }
+        }
+        System.out.println("Измен массив: " + Arrays.toString(arrays));
 
-        // 7.26
-        Scanner scanner5 = new Scanner(System.in);
+        // 11.69
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите значение значение a: ");
+        double a = scanner.nextDouble();
+
+        System.out.println("Введите значение b: ");
+        double b2 = scanner.nextDouble();
+
+        if (b2 <= a) {
+            System.out.println("!!!Ошибочка: b должно быть больше a!!!");
+            return;
+        }
+        double[] aray = {1.5, 2.3, 3.7, 4.0, 5.5, 6.1, 2.9, 4.5, 7.2};
         int count = 0;
-        int days = 30; // Предположим, что в месяце 30 дней
 
-        System.out.println("Введите температуры за 30 дней:");
-
-        for (int i = 0; i < days; i++) {
-            int temperature = scanner5.nextInt();
-            if (temperature < 0) {
+        for (double value : aray) {
+            if (value > a && value < b2) {
                 count++;
             }
         }
+        System.out.println("Количество элементов массива, принадлежащих промежутку от " + a + " до " + b2 + ": " + count);
 
-        System.out.println("Количество дней с температурой ниже 0°C: " + count);
+        scanner.close();
 
-        // 7.56
+        // 11.71
+        int [] grades = {5,4,3,2,2,5,4,5,3,2};
 
-        Scanner scanner65 = new Scanner(System.in);
-        System.out.print("Введите количество городов: ");
-        int numberOfCities = scanner65.nextInt();
-        int maxDistance = Integer.MIN_VALUE; // Начальное значение для максимального расстояния
+        int countfour = 0;
+        int countfive = 0;
 
-        System.out.println("Введите расстояния до городов:");
+        for (int grade : grades) {
+            if (grade == 4) {
+                countfour++;
+            } else if (grade == 5) {
+                countfive++;
+            }
 
-        for (int i = 0; i < numberOfCities; i++) {
-            int distance = scanner.nextInt();
-            if (distance > maxDistance) {
-                maxDistance = distance;
+        }
+        System.out.println("Всего четверок: " + countfour);
+        System.out.println("Всего пятерок: " + countfive);
+
+        // 11.115
+        double[] speed = {120, 150, 130, 170, 180, 160, 180, 140, 155, 180,
+                125, 145, 155, 170, 160, 155, 180, 175, 190, 165,
+                180, 200, 195, 170, 185, 190, 175, 160, 150, 145,
+                180, 175, 165, 160, 150, 145, 180, 170, 165, 190,
+                195, 200};
+
+        double maxspeed = speed[0];
+        int firstindex = -1;
+        int lastindex = -1;
+
+        for ( int i= 0; i < speed.length; i++) {
+            if (speed[i] > maxspeed) {
+                firstindex = i;
+                lastindex = i;
+            } else {
+                lastindex = i;
             }
         }
+        System.out.println("макс спид: " + maxspeed);
+        System.out.println("номер перв авт: " + firstindex);
+        System.out.println("номер посл авт: "  + lastindex);
 
-        System.out.println("Самое удаленное расстояние от Москвы: " + maxDistance + " км");
+        double[] prices = {12.5, 15.0, 10.0, 7.5, 20.0, 10.0, 22.5, 7.5, 30.0, 9.0,
+                12.0, 18.0, 25.0, 7.5, 10.0, 15.5, 16.0, 9.0, 14.5, 11.0,
+                7.5, 18.5, 12.0, 13.0, 10.0, 22.0, 17.5, 8.5, 14.0, 7.5,
+                15.0, 11.5, 12.5, 6.0, 9.5, 20.0, 13.5, 8.0, 10.5, 9.0,
+                11.0, 6.5, 8.5, 14.5, 19.0, 7.0, 10.0, 16.0, 18.0, 6.0,
+                12.5, 15.5, 20.5, 14.0, 8.5, 11.0};
 
-        // 8.1
-        // a)
+        double minprice = Double.MAX_VALUE;
+        int count1 = 0;
 
-        for (int i = 0; i < 6; i++) {
-            for (int j1 = 0; j < 6; j1++) {
-                System.out.print("5 ");
+        for (double price : prices) {
+            if (price < minprice) {
+                minprice = price;
+                count = 1;
+            } else if (price == minprice) {
+                count++;
             }
-            System.out.println();
         }
-
-        // b)
-
-        for (int i2 = 0; i2 < 4; i2++) {
-            for (int j2 = 1; j2 <= 10; j2++) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
-        }
-
-        // в)
-
-        for (int i = 0; i < 4; i++) {
-            for (int j3 = 41 + (i * 10); j3 <= 50 + (i * 10); j3++) {
-                System.out.print(j + " ");
-            }
-            System.out.println();
-        }
-
-        // 8.3
-        // a)
-
-        for (int i = 1; i <= 5; i++) {
-            for (int j4 = 1; j4 <= i; j4++) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
-
-        // b)
-        for (int i = 5; i <= 9; i++) {
-            for (int j5 = 5; j5 > i; j--) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
-        // в)
-
-        for (int i = 1; i <= 5; i++) {
-            for (int j6 = 1; j6 <= i; j++) {
-                System.out.print((i * 10) + " ");
-            }
-            System.out.println();
-        }
-
-        // г)
-
-        for (int i = 5; i <= 25; i += 5) {
-            for (int j7 = 5; j7 > i / 5; j--) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
+        System.out.println("Минимальная цена: " + minprice);
+        System.out.println("Количество самых дешевых книг: " + count);
     }
 }
+
+
